@@ -1,0 +1,36 @@
+#container {
+  display: flex;
+  padding: 10px;
+}
+#sidebar {
+  flex: 2;
+  box-shadow: #64646f33 0px 7px 29px 0px;
+  padding: 10px;
+  padding-left: 2%;
+  border-radius: 10px;
+}
+#sidebar > div {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: blue;
+  cursor: pointer;
+}
+#main {
+  flex: 8;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-left: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+#main > .articles {
+  display: flex;
+  margin-bottom: 20px;
+}
+#main > .articles > div {
+  flex: 4;
+}
+#main > .articles > img {
+  width: 100px;
+  height: 100%;
+  flex: 4;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+
+  <body>
+    <!--DO NOT CHANGE THIS ID's-->
+
+    <div id="container">
+      <div id="sidebar">
+        <!--add your sidebar component here-->
+      </div>
+
+      <div id="main">
+        <!--DO NOT CHANGE THIS ID's-->
+        <!--Show the clicked article in detailed format here ONLY-->
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module">
+  import sidebar from "./components/sidebar.js";
+  import { apiCall, appendArticles } from "./scripts/main.js";
+  import storeSearchterm from "./scripts/search.js";
+  let sidenav = document.getElementById("sidebar");
+  sidenav.innerHTML = sidebar();
+  let article = [];
+  // console.log(article);
+  article.push(JSON.parse(localStorage.getItem("article")));
+  console.log(article);
+  let main = document.getElementById("main");
+  appendArticles(article, main);
+
+  // show cricket news on search tab
+  let search_term = document.getElementById("searchbar");
+  search_term.addEventListener("keypress", (e) => {
+    // console.log(e);
+    let value = e.code;
+    // console.log(value);
+    if (value == "Enter") {
+      storeSearchterm(search_term.value);
+      // localStorage.setItem("search_term", search_term.value);
+      // window.location.href = "search.html";
+    }
+  });
+</script>
